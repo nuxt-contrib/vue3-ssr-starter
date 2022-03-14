@@ -36,10 +36,10 @@ app.use('*', async (req, res) => {
     template = await vite.transformIndexHtml(url, template);
     render = (await vite.ssrLoadModule('/src/entry-server.ts')).render;
 
-    const appHtml = await render(url, manifest);
+    const renderRes = await render(url, manifest);
 
     const html = template
-      .replace(`<!--app-html-->`, appHtml);
+      .replace(`<!--app-html-->`, renderRes.html);
 
     res.status(200).set({ 'Content-Type': 'text/html' }).end(html);
   } catch (e) {
