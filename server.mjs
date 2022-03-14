@@ -5,8 +5,6 @@ import { createServer } from 'vite'
 
 const resolve = (p) => path.resolve(p)
 
-const manifest = {}
-
 const app = express()
 
 const vite = await createServer({
@@ -28,15 +26,11 @@ app.use(vite.middlewares);
 
 app.use('*', async (req, res) => {
   try {
-    const url = req.originalUrl;
+    const url = req.originalUrl || req.url;
+    const template = await vite.transformIndexHtml(url, fs.readFileSync(resolve('index.html'), 'utf-8'));
+    const { render } = await vite.ssrLoadModule('/src/entry-server.ts');
 
-    let template, render;
-
-    template = fs.readFileSync(resolve('index.html'), 'utf-8');
-    template = await vite.transformIndexHtml(url, template);
-    render = (await vite.ssrLoadModule('/src/entry-server.ts')).render;
-
-    const renderRes = await render(url, manifest);
+    const renderRes = await render(url);
 
     const html = template
       .replace(`<!--app-html-->`, renderRes.html);
@@ -44,7 +38,7 @@ app.use('*', async (req, res) => {
     res.status(200).set({ 'Content-Type': 'text/html' }).end(html);
   } catch (e) {
     vite && vite.ssrFixStacktrace(e);
-    console.log(e.stack);
+    console.error(e.stack);
     res.status(500).end(e.stack);
   }
 });
