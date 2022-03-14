@@ -2,6 +2,8 @@
 
 This template should help get you started developing with Vue 3 and SSR in Vite.
 
+[▶️ Play in Stackblitz](https://stackblitz.com/github/nuxt-contrib/vue3-ssr-starter/tree/main?terminal=dev)
+
 ## Recommended IDE Setup
 
 - [VSCode](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=johnsoncodehk.volar)
