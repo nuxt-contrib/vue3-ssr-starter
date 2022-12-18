@@ -11,7 +11,8 @@ const vite = await createServer({
   root: resolve('.'),
   logLevel: 'info',
   server: {
-    middlewareMode: 'ssr',
+    middlewareMode: true,
+    appType: 'custom',
     watch: {
       // During tests we edit the files too fast and sometimes chokidar
       // misses change events, so enforce polling for consistency
