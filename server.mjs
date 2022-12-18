@@ -10,9 +10,9 @@ const app = express()
 const vite = await createServer({
   root: resolve('.'),
   logLevel: 'info',
+  appType: 'custom',
   server: {
     middlewareMode: true,
-    appType: 'custom',
     watch: {
       // During tests we edit the files too fast and sometimes chokidar
       // misses change events, so enforce polling for consistency
@@ -32,6 +32,8 @@ app.use('*', async (req, res) => {
     const { render } = await vite.ssrLoadModule('/src/entry-server.ts');
 
     const renderRes = await render(url);
+
+    console.log()
 
     const html = template
       .replace(`<!--app-html-->`, renderRes.html);
