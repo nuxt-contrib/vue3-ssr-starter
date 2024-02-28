@@ -4,8 +4,8 @@
     "dev": "node ./server.mjs"
   },
   "dependencies": {
-    "vue": "^3.3.12",
-    "vue-router": "^4.2.5"
+    "vue": "^3.4.21",
+    "vue-router": "^4.3.0"
   },
   "devDependencies": {
     "@vitejs/plugin-vue": "latest",
