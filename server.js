@@ -1,14 +1,13 @@
-import fs from 'fs'
-import path from 'path'
+import fs from 'node:fs'
+import path from 'node:path'
+
 import express from 'express'
 import { createServer } from 'vite'
-
-const resolve = (p) => path.resolve(p)
 
 const app = express()
 
 const vite = await createServer({
-  root: resolve('.'),
+  root: path.resolve('.'),
   logLevel: 'info',
   appType: 'custom',
   server: {
@@ -28,7 +27,7 @@ app.use(vite.middlewares);
 app.use('*', async (req, res) => {
   try {
     const url = req.originalUrl || req.url;
-    const template = await vite.transformIndexHtml(url, fs.readFileSync(resolve('index.html'), 'utf-8'));
+    const template = await vite.transformIndexHtml(url, fs.readFileSync(path.resolve('index.html'), 'utf-8'));
     const { render } = await vite.ssrLoadModule('/src/entry-server.ts');
 
     const renderRes = await render(url);

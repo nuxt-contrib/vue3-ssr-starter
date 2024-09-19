@@ -1,8 +1,9 @@
-const vuePlugin = require('@vitejs/plugin-vue')
+import vuePlugin from '@vitejs/plugin-vue'
+import { defineConfig } from 'vite'
 
-module.exports = {
+export default defineConfig({
   plugins: [vuePlugin()],
   build: {
     minify: false,
   },
-};
+})
