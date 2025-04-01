@@ -24,7 +24,7 @@ const vite = await createServer({
 // use vite's connect instance as middleware
 app.use(vite.middlewares);
 
-app.use('*', async (req, res) => {
+app.use('*splat', async (req, res) => {
   try {
     const url = req.originalUrl || req.url;
     const template = await vite.transformIndexHtml(url, fs.readFileSync(path.resolve('index.html'), 'utf-8'));
