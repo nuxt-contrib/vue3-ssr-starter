@@ -9,11 +9,11 @@
     "vue-router": "^4.6.3"
   },
   "devDependencies": {
-    "@types/express": "^5.0.5",
+    "@types/express": "^5.0.6",
     "@types/node": "latest",
     "@vitejs/plugin-vue": "^6.0.2",
     "@vitejs/plugin-vue-jsx": "^5.1.2",
-    "express": "^5.1.0",
+    "express": "^5.2.1",
     "vite": "^7.2.6"
   }
 }
