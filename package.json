@@ -11,9 +11,9 @@
   "devDependencies": {
     "@types/express": "^5.0.6",
     "@types/node": "latest",
-    "@vitejs/plugin-vue": "^6.0.5",
+    "@vitejs/plugin-vue": "^6.0.6",
     "@vitejs/plugin-vue-jsx": "^5.1.5",
     "express": "^5.2.1",
-    "vite": "^8.0.7"
+    "vite": "^8.0.8"
   }
 }
