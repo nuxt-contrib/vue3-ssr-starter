@@ -5,15 +5,15 @@
     "dev": "node ./server.js"
   },
   "dependencies": {
-    "vue": "^3.5.39",
-    "vue-router": "^5.1.0"
+    "vue": "^3.5.40",
+    "vue-router": "^5.2.0"
   },
   "devDependencies": {
     "@types/express": "^5.0.6",
     "@types/node": "latest",
-    "@vitejs/plugin-vue": "^6.0.7",
+    "@vitejs/plugin-vue": "^6.0.8",
     "@vitejs/plugin-vue-jsx": "^5.1.6",
     "express": "^5.2.1",
-    "vite": "^8.1.4"
+    "vite": "^8.1.5"
   }
 }
